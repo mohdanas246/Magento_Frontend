@@ -1,0 +1,112 @@
+
+<?php
+///** @var \Magento\Framework\View\Element\Template $block */
+///** @var  $collection */
+$collection = $block->getCollection();
+if ($collection->count()) {
+    ?>
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php echo __('Grid Record') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col id"><?php echo __('ID') ?></th>
+            <th scope="col" class="col firstName"><?php echo __('First Name') ?></th>
+            <th scope="col" class="col lastName"><?php echo __('Last Name') ?></th>
+            <th scope="col" class="col address"><?php echo __('Address') ?></th>
+            <th scope="col" class="col address"><?php echo __('Creation Time') ?></th>
+            <th scope="col" class="col action"><?php echo __('Action') ?></th>
+<!--            <th scope="col" class="col createat">--><?php //echo __('Created At') ?><!--</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach ($collection as $item): ?>
+            <tr>
+                <td data-th="<?= $block->escapeHtml(__('ID')) ?>" class="col id">
+                    <?php echo $item->getemployee_id() ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('firstName')) ?>" class="col name">
+                    <?php echo $item->getfirst_name() ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('lastName')) ?>" class="col email">
+                    <?php echo $item->getlast_name() ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('address')) ?>" class="col telephone">
+                    <?php echo $item->getaddress() ?>
+                </td>
+                <td data-th="<?= $block->escapeHtml(__('creationTime')) ?>" class="col telephone">
+                    <?php echo $item->getcreation_time() ?>
+                </td>
+
+                <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col delete">
+                    <a href="<?php echo $block->getDeleteAction() . 'id/' . $item->getemployee_id(); ?>"><?php echo __('Delete') ?></a>
+<!--                    <a style="margin-left: 9px" href="--><?php //echo $block->getEditAction() . 'id/' .$item->getId();?><!--">--><?php //echo __('Edit')?><!--</a>-->
+                    <a style="margin-left: 9px" href="<?php  echo $this->getUrl("employee/form/index") . 'id/' .$item->getId();?>"><?php echo __('Edit')?></a>
+                </td>
+<!--                <td data-th="--><?php //= $block->escapeHtml(__('Created At')) ?><!--"-->
+<!--                    class="col title">--><?php //echo date('Y-m-d', strtotime($item->getCreatedAt())); ?><!--</td>-->
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php
+}
+?>
+<?php
+$model = $block->getLoadValue();
+
+?>
+<div class="row">
+    <div class="col-md-8">
+        <form name="addData" method="POST" id="addData" class="form" autocomplete="off" action="<?php echo $this->getUrl("employee/form/save")?>"
+              data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"  data-mage-init='{"validation":{}}'>
+
+            <fieldset class="fieldset">
+<!--                <legend class="legend"><span>--><?php //= $block->escapeHtmlAttr(__('Fill Detail')) ?><!--</span></legend>-->
+                <fieldset class="fieldset row">
+                    <div class="fields col-md-6">
+
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('First Name')) ?></span></label>
+                            <div class="control">
+                                <input name="first_name" id="firstName" title=" First Name" value="<?= !empty($model) ? $model->getfirst_name() : ''?>" class="input-text" type="text"
+                                data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+                        <div class="field name required">
+                            <input type="hidden" value="<?= !empty($model) ? $model->getId() : ""?>" class="admin__control-text" name="id">
+                        </div>
+
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Last Name')) ?></span></label>
+                            <div class="control">
+                                <input name="last_name" id="lastName" title="Last Name" value="<?= !empty($model) ? $model->getlast_name() : ''?>" class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-alphanum-with-spaces':true}">
+                            </div>
+                        </div>
+
+                        <div class="field name required">
+                            <label class="label" for="title"><span><?= $block->
+                                    escapeHtmlAttr(__('Address')) ?></span></label>
+                            <div class="control">
+                                <input name="address" title="Address" value="<?= !empty($model) ? $model->getaddress() : ''?>" class="input-text" type="text"
+                                       data-validate="{required:true, 'validate-address':true}">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" class="action submit primary" title="Save"><span><?= $block->
+                            escapeHtmlAttr(__('Save')) ?></span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

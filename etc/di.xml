@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="employee_listing_data_source" xsi:type="string">MyCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MyCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">employee</argument>
+            <argument name="resourceModel" xsi:type="string">Codilar\Employee\Model\ResourceModel\Form</argument>
+            <argument name="idFieldName" xsi:type="string">employee_id</argument>
+        </arguments>
+    </virtualType>
+</config>

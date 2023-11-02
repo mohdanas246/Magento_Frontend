@@ -1,0 +1,42 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="employee" resource="default" engine="innodb" comment="employee Table">
+        <column xsi:type="int" name="employee_id" unsigned="false" nullable="false" identity="true" comment="employee Id"/>
+        <column xsi:type="mediumtext" name="image" nullable="false" comment="Image"/>
+        <column xsi:type="varchar" name="first_name" nullable="false" length="255" comment="First Name"/>
+        <column xsi:type="varchar" name="last_name" nullable="false" length="255" comment="Last Name"/>
+        <column xsi:type="text" name="address" nullable="false" comment="Address"/>
+        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="employee Creation Time"/>
+        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="employee Modification Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="employee_id"/>
+        </constraint>
+    </table>
+
+<!--    <table name="student" resource="default" engine="innodb" comment="student table">-->
+<!--        <column xsi:type="int" name="student_id" unsigned="false" nullable="false" identity="true" comment="student id"/>-->
+<!--        <column xsi:type="int" name="employee_id" unsigned="false" nullable="false" identity="false" comment="employee Id"/>-->
+<!--        <column xsi:type="mediumtext" name="image" nullable="false" comment="student image"/>-->
+<!--        <column xsi:type="varchar" name="first_name" nullable="true" length="255" comment="student first name"/>-->
+<!--        <column xsi:type="varchar" name="last_name" nullable="true" length="255" comment="student last name"/>-->
+<!--        <column xsi:type="varchar" name="father_name" nullable="true" length="255" comment="student father name"/>-->
+<!--        <column xsi:type="text" name="address" nullable="false" comment="student address"/>-->
+<!--        <column xsi:type="int" name="number" nullable="false" comment="student number"/>-->
+<!--        <column xsi:type="text" name="student_address" nullable="false" comment="Address"/>-->
+<!--        <column xsi:type="timestamp" name="creation_time" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"-->
+<!--                comment="employee Creation Time"/>-->
+<!--        <column xsi:type="timestamp" name="update_time" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"-->
+<!--                comment="employee Modification Time"/>-->
+
+<!--        <constraint xsi:type="primary" referenceId="PRIMARY">-->
+<!--            <column name="student_id"/>-->
+<!--        </constraint>-->
+
+<!--        <constraint xsi:type="foreign" referenceId="EMPLOYEE_EMPLOYEE_ID_STUDENT_EMPLOYEE_ID" table="student" column="student_id"-->
+<!--                    referenceColumn="employee_id" referenceTable="employee" onDelete="CASCADE"/>-->
+
+<!--    </table>-->
+</schema>

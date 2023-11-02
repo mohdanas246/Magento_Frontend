@@ -1,0 +1,15 @@
+<!--@subject {{trans "Thanks for getting in touch"}} @-->
+<!--@vars {
+"var data.comment":"Comment",
+"var data.email":"Sender Email",
+"var data.name":"Sender Name",
+"var data.telephone":"Sender Telephone",
+"var address":"Address"
+"var last_name":"Last Name"
+"var first_name":"First Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+<p>Hello {{var first_name}} {{var last_name}},</p>
+<p>This is a custom email template with your address: {{var address}}.</p>
+{{template config_path="design/email/footer_template"}}
