@@ -8,8 +8,8 @@ use Magento\Customer\Model\Session as CustomerSession;
 
 class CheckCustomerLogin implements ObserverInterface
 {
-    protected $messageManager;
-    protected $customerSession;
+    protected ManagerInterface $messageManager;
+    protected CustomerSession $customerSession;
 
     public function __construct(
         ManagerInterface $messageManager,
@@ -22,7 +22,7 @@ class CheckCustomerLogin implements ObserverInterface
     public function execute(Observer $observer)
     {
         if (!$this->customerSession->isLoggedIn()) {
-            $this->messageManager->addErrorMessage(__('Customer does not exist.'));
+            $this->messageManager->addErrorMessage(__('Sorry Customer does not exist.'));
             $result = $observer->getEvent()->getResult();
             $result->setHasError(true);
             $result->setError(__('Customer must be logged in to add products to your cart.'));

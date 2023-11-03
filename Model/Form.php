@@ -1,10 +1,8 @@
 <?php
 
 namespace Codilar\Employee\Model;
-
 use Magento\Framework\Model\AbstractModel;
 use Codilar\Employee\Model\ResourceModel\Form as ResourceModel;
-
 class Form extends AbstractModel
 {
     protected function _construct()
@@ -18,16 +16,4 @@ class Form extends AbstractModel
     const CACHE_TAG = 'Codilar_Employee';
 
     protected $_cacheTag = self::CACHE_TAG;
-
-//    protected function _construct()
-//    {
-//        $this->_init('Codilar\Employee\Model\ResourceModel\Form');
-//    }
 }
-
-
-
-
-
-
-

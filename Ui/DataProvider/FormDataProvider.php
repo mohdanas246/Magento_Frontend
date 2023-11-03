@@ -55,10 +55,6 @@ class FormDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         foreach ($items as $item)
         {
             $employeeData = $item->getData();
-//            $employeeImg = $employeeData['photo'];
-//            unset($employeeData['photo']);
-//            $employeeData['photo'][0]['name'] = $employeeImg;
-//            $employeeData['photo'][0]['url'] = $employeeImg;
             $this->loadedData[$item->getId()] = $employeeData;
         }
         return $this->loadedData;

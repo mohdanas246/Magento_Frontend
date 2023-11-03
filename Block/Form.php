@@ -44,17 +44,3 @@ class Form extends  Template
         return $model;
     }
 }
-
-//    public function getAllCars() {
-//        return $this->collection;
-//    }
-
-//    public  function getFormAction()
-//    {
-//        return $this->getUrl('employee/form/index', ['_secure' => true]);
-//        return $this->getUrl('employee/form/index');
-//    }
-
-
-// echo $this->getUrl("employee/form/save")
-

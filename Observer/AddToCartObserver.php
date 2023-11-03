@@ -1,58 +1,4 @@
 <?php
-//namespace Codilar\Employee\Observer;
-//
-//use Magento\Framework\Event\ObserverInterface;
-//use Magento\Framework\Event\Observer;
-//use Magento\Catalog\Model\ProductRepository;
-//use Magento\Checkout\Model\Cart;
-//use Magento\Framework\Message\ManagerInterface;
-//use Magento\Framework\App\Config\ScopeConfigInterface;
-//
-//class AddToCartObserver implements ObserverInterface
-//{
-//    protected ProductRepository $productRepository;
-////    protected Cart $cart;
-//    protected ManagerInterface $messageManager;
-//    protected ScopeConfigInterface $scopeConfig;
-//
-//    public function __construct(
-//        ProductRepository    $productRepository,
-////        Cart $cart,
-//        ManagerInterface     $messageManager,
-//        ScopeConfigInterface $scopeConfig
-//    )
-//    {
-//        $this->productRepository = $productRepository;
-////        $this->cart = $cart;
-//        $this->messageManager = $messageManager;
-//        $this->scopeConfig = $scopeConfig;
-//    }
-//
-//    public function execute(Observer $observer)
-//    {
-////        $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/custom.log');
-////        $logger = new \Zend_Log();
-////        $logger->addWriter($writer);
-////      $logger->info("calling file");
-////        $sku = $this->getSkuFromSystemConfig();
-////        $quoteItem = $observer->getQuoteItem();
-////        $product = $quoteItem->getProduct();
-////     if ($product && $product->getSku() === $sku)
-////     {
-////        $quoteItem->setQty(1);
-////        $quoteItem->save();
-////
-////        $this->messageManager->addSuccessMessage(__('Product has been added to the cart.'));
-////     }
-////   }
-////   private function getSkuFromSystemConfig()
-////    {
-////        return $this->scopeConfig->getValue('Codilar_Employee/product_settings/sku');
-////    }
-//    }
-//}
-//
-
 namespace Codilar\Employee\Observer;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -62,7 +8,6 @@ use Magento\Quote\Model\Quote;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\Data\Form\FormKey;
-
 class AddToCartObserver implements ObserverInterface
 {
     protected ScopeConfigInterface $scopeConfig;
@@ -128,7 +73,6 @@ class AddToCartObserver implements ObserverInterface
         );
         return $configValue;
     }
-
     protected function getProductBySku($sku)
     {
         try {

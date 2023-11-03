@@ -11,4 +11,3 @@ class Form extends AbstractDb
         $this->_init('employee','employee_id');
     }
 }
-

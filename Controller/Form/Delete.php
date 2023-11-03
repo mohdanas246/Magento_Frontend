@@ -6,16 +6,11 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\Action\Context;
 use Codilar\Employee\Model\FormFactory;
-
-
 class Delete extends Action
 {
     protected $messageManager;
-
     private FormFactory $entityFactory;
     private ResourceModel $resouceModel;
-
-
     public function __construct(Context $context,
                                 \Magento\Framework\Message\ManagerInterface $messageManager,
                                 FormFactory $entityFactory,  ResourceModel $resourceModel
@@ -27,7 +22,6 @@ class Delete extends Action
         $this->entityFactory = $entityFactory;
         $this->resouceModel = $resourceModel;
     }
-
     public function execute()
     {
         try {
