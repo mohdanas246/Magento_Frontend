@@ -5,7 +5,6 @@ use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Customer\Model\Session as CustomerSession;
-
 class CheckCustomerLogin implements ObserverInterface
 {
     protected ManagerInterface $messageManager;
